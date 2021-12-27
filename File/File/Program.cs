@@ -1,9 +1,9 @@
-﻿public static void CreateObject()
+﻿public static void GenerateNewObject()
 {
     //Создание объекта на карте
 }
 
-public static void GetChance()
+public static void SetChance()
 {
     _chance = Random.Range(0, 100);
 }
