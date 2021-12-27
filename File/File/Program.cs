@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿public static int MakeValidNumber(int a, int b, int c)
+{
+    if (a < b)
+        return b;
+    else if (a > c)
+        return c;
+    else
+        return a;
+}
