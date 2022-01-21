@@ -1,2 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿public void ShootPlayer(Player player) { }
+public string FindByIndex(int number) { }
