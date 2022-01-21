@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿int ArmySize = 10;
+int Coin = 10;
+string Name = "Vladislav";
