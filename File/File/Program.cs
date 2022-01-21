@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿public void SetOn()
+{
+    _effects.StartEnableAnimation();
+}
+
+public void SetOff()
+{
+    _pool.Free(this);
+}
