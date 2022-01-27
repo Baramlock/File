@@ -1,28 +1,45 @@
 ﻿internal class Weapon
 {
-    public int Damage { get; private set; }
-    public int Bullets { get; private set; }
+    private readonly int _damage;
+
+    private int _bullets;
+    private readonly int _bulletsToFire;
+
+    public Weapon(int damage, int bullets, int bulletsToFire)
+    {
+        if ((damage < 0) && (bullets < 0) && (bulletsToFire <= 0))
+            throw new InvalidOperationException();
+        _damage = damage;
+        _bullets = bullets;
+        _bulletsToFire = bulletsToFire;
+    }
+
+    public bool CanFire() => _bullets >= _bulletsToFire;
 
     public void Fire(Player player)
     {
-        player.TakeDamage(Damage);
-        Bullets -= 1;
+        if (CanFire() == false)
+            throw new InvalidOperationException();
+
+        player.TakeDamage(_damage);
+        _bullets -= _bulletsToFire;
     }
 }
 
 internal class Player
 {
-    public int Health { get; private set; }
+    private int _health;
+    public bool IsLife => _health >= 0;
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
+        _health -= damage;
     }
 }
 
 internal class Bot
 {
-    private Weapon _Weapon;
+    private readonly Weapon _Weapon;
 
     public Bot(Weapon weapon)
     {
@@ -31,6 +48,7 @@ internal class Bot
 
     public void OnSeePlayer(Player player)
     {
-        _Weapon.Fire(player);
+        if (_Weapon.CanFire() && player.IsLife)
+            _Weapon.Fire(player);
     }
 }
