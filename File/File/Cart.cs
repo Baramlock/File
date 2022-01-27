@@ -1,7 +1,7 @@
 ﻿internal class Cart : GoodCase
 {
-    private Order _order;
-    private Warehouse _warehouse;
+    private readonly Order _order;
+    private readonly Warehouse _warehouse;
 
     public Cart(Warehouse warehouse)
     {
@@ -24,24 +24,6 @@
 
     internal Order Order()
     {
-        return new Order();
-    }
-}
-
-internal class Order
-{
-    public string Paylink { get; private set; }
-
-    public Order()
-    {
-        Random random = new Random();
-        var orderlink = new char[10];
-
-        for (int i = 0; i < orderlink.Length; i++)
-        {
-            orderlink[i] = (char)random.Next(0x0410, 0x44F);
-        }
-
-        Paylink = new string(orderlink);
+        return _order;
     }
 }
