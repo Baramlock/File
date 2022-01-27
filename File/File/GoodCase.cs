@@ -1,6 +1,6 @@
 ﻿internal class GoodCase
 {
-    private Dictionary<Good, int> _goods = new Dictionary<Good, int>();
+    private readonly Dictionary<Good, int> _goods = new();
 
     protected void AddTo(Good good, int count)
     {
