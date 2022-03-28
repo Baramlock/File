@@ -1,8 +1,8 @@
 ﻿internal class Weapon
 {
     private readonly int _damage;
-    private int _bullets;
     private readonly int _bulletsPerShot;
+    private int _bullets;
 
     public Weapon(int damage, int bullets, int bulletsToFire)
     {
